@@ -57,7 +57,9 @@ def main():
 		
 		userX = int(userX)
 		userY = int(userY)
-
+		userX -= 1
+		userY -= 1
+		
 		hit = guess(connection, userX, userY)
 		if hit:
 			myHits += 1
