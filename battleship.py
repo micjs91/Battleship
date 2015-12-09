@@ -155,34 +155,72 @@ def setupBoard():
 		userInput = raw_input("Please enter the X-coordinate, Y-coordinate, and direction in this format: X Y D\n")
 
 		xcoord, ycoord, direction = userInput.split()
+xcoord -= 1
+		ycoord -= 1
 
 		#Should check both x- and y-coordinates to make sure the ship being placed doesn't go off the board
+		#Also checks to see if there is already a ship placed at each desired coordinate.
 		if (direction == 0)
-			if ((xcoord + 5-x > 9) || (xcoord < 0) || (ycoord < 0) || (ycoord > 9))
+			if ((xcoord + 5-x > 9) || (xcoord < 0) || (ycoord < 0) || (ycoord > 9)):				
 				print "Insufficient Space, please re-enter coordinates."
 				x-=1
-			else
+			else:
+				for j in range(x):
+					j = 0
+					ch = 1
+					if board[xcoord + j][ycoord] == BoardSpot.SHIP:
+						print "There is already a ship present at ", (xcoord + j), ", ", ycoord, ", please re-enter coordinates."
+						ch = 0
+						x-=1
+			if ch:
 				placeShip(myBoard, 5-x, int(xcoord), int(ycoord), int(direction))
-		elif (direction == 1)
-			if ((xcoord - 5-x < 0) || (xcoord > 9) || (ycoord > 9) || (ycoord < 0))
+		elif (direction == 1):
+			j = 0
+			if ((xcoord - 5-x < 0) || (xcoord > 9) || (ycoord > 9) || (ycoord < 0)):
 				print "Insufficient Space, please re-enter coordinates."
 				x-=1
-			else
+			else:
+				for j in range(x):
+					j = 0
+					ch = 1
+					if board[xcoord - j][ycoord] == BoardSpot.SHIP:
+						print "There is already a ship present at ", (xcoord - j), ", ", ycoord, ", please re-enter coordinates."
+						ch = 0
+						x-=1
+			if ch:
 				placeShip(myBoard, 5-x, int(xcoord), int(ycoord), int(direction))
-		elif (direction == 2)
-			if ((ycoord - 5-x < 0) || (ycoord > 9) || (xcoord < 0) || (xcoord > 9))
+		elif (direction == 2):
+			j = 0
+			if ((ycoord - 5-x < 0) || (ycoord > 9) || (xcoord < 0) || (xcoord > 9)):
 				print "Insufficient Space, please re-enter coordinates."
 				x-=1
-			else
+			else:
+				for j in range(x):
+					j = 0
+					ch = 1
+					if board[xcoord][ycoord - j] == BoardSpot.SHIP:
+						print "There is already a ship present at ", xcoord, ", ", (ycoord - j), ", please re-enter coordinates."
+						ch = 0
+						x-=1
+			if ch:
 				placeShip(myBoard, 5-x, int(xcoord), int(ycoord), int(direction))
-		elif (direction == 3)
-			if ((xcoord > 9) || (xcoord < 0) || (ycoord < 0) || (ycoord + 5-x > 9))
+		elif (direction == 3):
+			j = 0
+			if ((xcoord > 9) || (xcoord < 0) || (ycoord < 0) || (ycoord + 5-x > 9)):
 				print "Insufficient Space, please re-enter coordinates."
 				x-=1
-			else
+			else:
+				for j in range(x):
+					j = 0
+					ch = 1
+					if board[xcoord][ycoord + j] == BoardSpot.SHIP:
+						print "There is already a ship present at ", xcoord, ", ", (ycoord + j), ", please re-enter coordinates."
+						ch = 0
+						x-=1
+			if ch:
 				placeShip(myBoard, 5-x, int(xcoord), int(ycoord), int(direction))
-		else
-			print "Invalid coordinates, please try again.\n"
+		else:
+			print "Invalid direction, please try again.\n"
 			x-=1
 
 	return (myBoard, enemyBoard)
