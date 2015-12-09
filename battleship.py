@@ -238,17 +238,17 @@ def printBoard(board):
 def placeShip(board, shipSize, xcoord, ycoord, direction):
 	
 	i = 0
-	if (direction == 0)
-		for i < shipSize
+	if (direction == 0):
+		for i in range(shipSize):
 			board[xcoord + i][ycoord] = BoardSpot.SHIP
-	elif (direction == 1)
-		for i < shipSize
+	elif (direction == 1):
+		for i in range(shipSize):
 			board[xcoord - i][ycoord] = BoardSpot.SHIP
-	elif (direction == 2)
-		for i < shipSize
+	elif (direction == 2):
+		for i in range(shipSize):
 			board[xcoord][ycoord + i] = BoardSpot.SHIP
-	else
-		for i < shipSize
+	else:
+		for i in range(shipSize):
 			board[xcoord][ycoord - i] = BoardSpot.SHIP
 
 if __name__ == '__main__':
