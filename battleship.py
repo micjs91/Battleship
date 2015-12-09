@@ -157,13 +157,13 @@ def setupBoard():
 		userInput = raw_input("Please enter the X-coordinate, Y-coordinate, and direction in this format: X Y D\n")
 
 		xcoord, ycoord, direction = userInput.split()
-xcoord -= 1
+		xcoord -= 1
 		ycoord -= 1
 
 		#Should check both x- and y-coordinates to make sure the ship being placed doesn't go off the board
 		#Also checks to see if there is already a ship placed at each desired coordinate.
-		if (direction == 0)
-			if ((xcoord + 5-x > 9) || (xcoord < 0) || (ycoord < 0) || (ycoord > 9)):				
+		if (direction == 0):
+			if ((xcoord + 5-x > 9) or (xcoord < 0) or (ycoord < 0) or (ycoord > 9)):				
 				print "Insufficient Space, please re-enter coordinates."
 				x-=1
 			else:
@@ -178,7 +178,7 @@ xcoord -= 1
 				placeShip(myBoard, 5-x, int(xcoord), int(ycoord), int(direction))
 		elif (direction == 1):
 			j = 0
-			if ((xcoord - 5-x < 0) || (xcoord > 9) || (ycoord > 9) || (ycoord < 0)):
+			if ((xcoord - 5-x < 0) or (xcoord > 9) or (ycoord > 9) or (ycoord < 0)):
 				print "Insufficient Space, please re-enter coordinates."
 				x-=1
 			else:
@@ -193,7 +193,7 @@ xcoord -= 1
 				placeShip(myBoard, 5-x, int(xcoord), int(ycoord), int(direction))
 		elif (direction == 2):
 			j = 0
-			if ((ycoord - 5-x < 0) || (ycoord > 9) || (xcoord < 0) || (xcoord > 9)):
+			if ((ycoord - 5-x < 0) or (ycoord > 9) or (xcoord < 0) or (xcoord > 9)):
 				print "Insufficient Space, please re-enter coordinates."
 				x-=1
 			else:
@@ -208,7 +208,7 @@ xcoord -= 1
 				placeShip(myBoard, 5-x, int(xcoord), int(ycoord), int(direction))
 		elif (direction == 3):
 			j = 0
-			if ((xcoord > 9) || (xcoord < 0) || (ycoord < 0) || (ycoord + 5-x > 9)):
+			if ((xcoord > 9) or (xcoord < 0) or (ycoord < 0) or (ycoord + 5-x > 9)):
 				print "Insufficient Space, please re-enter coordinates."
 				x-=1
 			else:
